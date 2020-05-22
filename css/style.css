@@ -1,0 +1,438 @@
+/* -------------------------------- 
+
+Primary style
+
+-------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500&family=Passion+One:wght@900&display=swap');
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Comfortaa", sans-serif;
+  color: #333;
+  background-color: #ffffff;
+}
+
+
+h1, h2, h3, p, a, input, label {
+  font-family: "Comfortaa";
+}
+/*-----------------------------------------
+
+Background video
+
+------------------------------------------*/
+
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -999;
+}
+/* Media queries to keep aspect ratio over different devices */
+@media (min-aspect-ratio: 16/9) {
+    .bg-video {
+        height: 300%;
+        top: -100%;
+    }
+}
+@media (max-aspect-ratio: 16/9) {
+    .bg-video {
+        width: 300%;
+        left: -100%;
+        max-width: initial; /* reset for some themes that have predefined widths for <video> elements */
+    }
+}
+/* Replace video with image on mobile devices */
+@media all and (max-width: 767px) {
+    
+    .bg-video {
+        display: none;
+    }
+    .cd-slider > li:first-of-type {
+  		background-image: url(../img/hero-ruth.jpg);
+}
+}
+/*----Remove scrollbar-----------*/
+#about {
+    -ms-overflow-style: none;  // IE 10+
+    overflow: -moz-scrollbars-none;  // Firefox
+}
+
+#about::-webkit-scrollbar {
+    display: none; // Safari and Chrome
+}
+.inner-modal::-webkit-scrollbar {
+    display: none; // Safari and Chrome
+}
+/* -------------------------------- 
+
+Slider
+
+-------------------------------- */
+.cd-slider-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  /* hide horizontal scrollbar on IE11 */
+  overflow: hidden;
+}
+.cd-slider-wrapper .cd-slider, .cd-slider-wrapper .cd-slider > li {
+  height: 100%;
+  width: 100%;
+}
+.cd-slider > li {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  /* used to vertically center its content */
+  display: table;
+  background-position: center center;
+  background-repeat: no-repeat;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.cd-slider > li.visible {
+  /* selected slide */
+  position: relative;
+  z-index: 2;
+  opacity: 1;
+}
+.cd-slider > li:first-of-type {
+  background-color: transparent/*#3c3c3c*/;
+  /*background-image: url(../img/hero-ruth.jpg);*/
+}
+.cd-slider > li:nth-of-type(2) {
+  background-color: #333;
+  background-image: url(../img/hero-ruth-2.jpg);
+}
+.cd-slider > li:nth-of-type(3) {
+  background-color: #7d7160;
+  background-image: url(../img/hero-ruth-3.jpg);
+}
+.cd-slider > li:nth-of-type(4) {
+  background-color: #ff625a;
+  background:linear-gradient(180deg, rgba(214,214,214,0.3438550420168067) 0%, rgba(255,255,255,0.6463760504201681) 100%), url(../img/hero-ruth-4.jpg);
+}
+.cd-slider > li:first-of-type, .cd-slider > li:nth-of-type(2), .cd-slider > li:nth-of-type(3), .cd-slider > li:nth-of-type(4) {
+  background-size: cover;
+}
+.cd-slider > li > div {
+  /* vertically center the slider content */
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+.cd-slider > li h1, .cd-slider > li h3, .cd-slider > li h2, .cd-slider > li p {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  line-height: 1.2;
+  margin: 0 auto 14px;
+  color: #000;
+  width: 90%;
+  max-width: 720px;
+}
+#about {
+  width:90%;
+  max-width:900px!important;
+  max-height: 300px;
+  overflow:auto;
+}
+.cd-slider > li h1{
+  font-size: 10.4rem;
+  font-family: "Passion One";
+  margin:0 auto 0;
+  }
+.cd-slider > li h3 {
+  font-size: 5.4rem;
+  font-family: "Comfortaa"
+  }
+.cd-slider > li p {
+  font-size: 1.4rem;
+  line-height: 1.4; 
+}
+.cd-slider > li .cd-btn {
+  display: inline-block;
+  padding: 1.2em 1.4em;
+  margin-top: .8em;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: .25em;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #ffffff;
+  text-transform: uppercase;
+  -webkit-transition: background-color 0.2s;
+  -moz-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+.no-touch .cd-slider > li .cd-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+/*---------------------------
+Contact form style
+----------------------------*/
+form {
+  max-height: 400px;
+  height: 100%;
+   }
+#contact_form, #contact_form textarea, #contact_form button{
+	font-family: "Comfortaa";
+}
+#contact_form label{
+  font-weight: 700;
+}
+/* Fields */
+#contact_form input[type=date], #cotact_form input[type=email], #contact_form input[type=text], #contact_form select, #contact_form textarea {
+    background-color: #33333366; /* Remove background fill */
+    border-radius: 0; /* Remove corner curve */
+    border: 2px solid #fff; /* 2px white border */
+    color: #fff; /* White text */
+    max-height: 45px; /* Increase input height */
+    height: 100%;
+    margin:1rem;
+    max-width: 400px;
+    width:100%;
+}
+#contact_form textarea {
+  max-height: 300px;
+  height: 100%
+}
+/* Button */
+#contact_form button[type=submit] {
+   border: 2px solid #fff;
+   padding: 10px 60px;
+   color: white;
+   background: #444;
+   font-weight: 700;
+   max-width: 400px;
+   width:100%;
+
+}
+/*-----------------
+modal content
+-------------------*/
+.modal-1, .inner-modal > object, object, .inner-modal {
+   max-width: 1000px; 
+   width: 100%;
+   max-height: 600px;
+  height: 95%;
+  font-size: 1.4rem;
+  line-height: 1.6;
+   text-align: left;
+  overflow-y: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background:#34383c;
+  color:white;
+}
+@media only screen and (max-width: 568px) {
+  
+  .cd-slider > li h3 {
+    font-size: 2.4em;
+    font-weight: 300;
+  }
+  .cd-slider > li h1 {
+    font-size: 4.4em;
+    font-weight: 300;
+  }
+ }
+@media only screen and (min-width: 768px) {
+  .cd-slider > li h2, .cd-slider > li p {
+    max-width: 520px;
+  }
+  .cd-slider > li h2 {
+    font-size: 2.4em;
+    font-weight: 300;
+  }
+ }
+@media only screen and (min-width: 1170px) {
+  .cd-slider > li h2, .cd-slider > li p {
+    margin-bottom: 20px;
+  }
+  .cd-slider > li h2 {
+    font-size: 3.2em;
+  }
+  .cd-slider > li p {
+    font-size: 1.8rem;
+  }
+}
+
+/* -------------------------------- 
+
+Slider navigation
+
+-------------------------------- */
+.cd-slider-navigation {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  right: auto;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+  z-index: 3;
+  text-align: center;
+  width: 90%;
+}
+.cd-slider-navigation::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+.cd-slider-navigation li {
+  display: inline-block;
+  margin-right: 20px;
+}
+.cd-slider-navigation li:last-of-type {
+  margin-right: 0;
+}
+.cd-slider-navigation a {
+  display: block;
+  position: relative;
+  height: 40px;
+  width: 40px;
+  background: url(../img/icons.svg) no-repeat -10px -10px;
+  border-radius: 50%;
+  background-color: #33333366;
+}
+.no-touch .cd-slider-navigation a:hover em {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+  -webkit-transition: opacity 0.2s 0s, visibility 0s 0s, -webkit-transform 0.2s 0s;
+  -moz-transition: opacity 0.2s 0s, visibility 0s 0s, -moz-transform 0.2s 0s;
+  transition: opacity 0.2s 0s, visibility 0s 0s, transform 0.2s 0s;
+}
+.cd-slider-navigation li.selected:first-of-type a {
+  /* change custom icon using image sprites */
+  background-position: -10px -70px;
+}
+.cd-slider-navigation li:nth-of-type(2) a {
+  background-position: -70px -10px;
+}
+.cd-slider-navigation li.selected:nth-of-type(2) a {
+  background-position: -70px -70px;
+}
+.cd-slider-navigation li:nth-of-type(3) a {
+  background-position: -130px -10px;
+}
+.cd-slider-navigation li.selected:nth-of-type(3) a {
+  background-position: -130px -70px;
+}
+.cd-slider-navigation li:nth-of-type(4) a {
+  background-position: -190px -10px;
+}
+.cd-slider-navigation li.selected:nth-of-type(4) a {
+  background-position: -190px -70px;
+}
+.cd-slider-navigation em {
+  /* tooltip visible on hover */
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  padding: 8px 10px;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.7);
+  white-space: nowrap;
+  font-size: 1.3rem;
+  border-radius: 2px;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateX(-50%) translateY(3px);
+  -moz-transform: translateX(-50%) translateY(3px);
+  -ms-transform: translateX(-50%) translateY(3px);
+  -o-transform: translateX(-50%) translateY(3px);
+  transform: translateX(-50%) translateY(3px);
+  -webkit-transition: opacity 0.2s 0s, visibility 0s 0.2s, -webkit-transform 0.2s 0s;
+  -moz-transition: opacity 0.2s 0s, visibility 0s 0.2s, -moz-transform 0.2s 0s;
+  transition: opacity 0.2s 0s, visibility 0s 0.2s, transform 0.2s 0s;
+}
+.cd-slider-navigation em::after {
+  /* tooltip arrow */
+  content: '';
+  position: absolute;
+  left: 50%;
+  right: auto;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+  bottom: -10px;
+  height: 0;
+  width: 0;
+  border: 5px solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.7);
+}
+@media only screen and (min-width: 1170px) {
+  .cd-slider-navigation a {
+    height: 60px;
+    width: 60px;
+  }
+  .cd-slider-navigation li:first-of-type a {
+    /* change custom icon using image sprites */
+    background-position: 0 0px;
+  }
+  .cd-slider-navigation li.selected:first-of-type a {
+    /* change custom icon using image sprites */
+    background-position: 0 -60px;
+  }
+  .cd-slider-navigation li:nth-of-type(2) a {
+    background-position: -60px 0;
+  }
+  .cd-slider-navigation li.selected:nth-of-type(2) a {
+    background-position: -60px -60px;
+  }
+  .cd-slider-navigation li:nth-of-type(3) a {
+    background-position: -120px 0;
+  }
+  .cd-slider-navigation li.selected:nth-of-type(3) a {
+    background-position: -120px -60px;
+  }
+  .cd-slider-navigation li:nth-of-type(4) a {
+    background-position: -180px 0;
+  }
+  .cd-slider-navigation li.selected:nth-of-type(4) a {
+    background-position: -180px -60px;
+  }
+}
+
+/* -------------------------------- 
+
+svg cover layer
+
+-------------------------------- */
+.cd-svg-cover {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+}
+.cd-svg-cover path {
+  fill: #333;
+}
+.cd-svg-cover.is-animating {
+  z-index: 4;
+  opacity: 1;
+  -webkit-transition: opacity 0.6s;
+  -moz-transition: opacity 0.6s;
+  transition: opacity 0.6s;
+}
