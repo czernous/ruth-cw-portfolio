@@ -142,9 +142,26 @@ Slider
 }
 #about {
   width:90%;
-  max-width:900px!important;
   max-height: 300px;
   overflow:auto;
+}
+div#about {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  margin: auto auto 2em auto;
+  text-align: left;
+  font-family: "Comfortaa";
+}
+#about p, #about h4, #about h5{
+  max-width: 900px;
+}
+.fas {
+  position:absolute;
+  transform: scaleY(0);
+  margin: 5% 50%;
+  animation: bounce 1.5s ease-in-out infinite;
 }
 .cd-slider > li h1{
   font-size: 10.4rem;
@@ -154,6 +171,16 @@ Slider
 .cd-slider > li h3 {
   font-size: 5.4rem;
   font-family: "Comfortaa"
+  }
+  .cd-slider > li h4, .cd-slider > li h5 {
+    margin: 2rem 4.4rem;
+    font-weight: 700;
+  }
+  .cd-slider > li h4 {
+    font-size: 2.5rem;
+  }
+  .cd-slider > li h5 {
+    font-size: 2rem;
   }
 .cd-slider > li p {
   font-size: 1.4rem;
@@ -246,9 +273,10 @@ modal content
   }
  }
 @media only screen and (min-width: 768px) {
-  .cd-slider > li h2, .cd-slider > li p {
+  .cd-slider > li h2, .cd-slider > li h4, .cd-slider > li h5, .cd-slider > li p {
     max-width: 520px;
   }
+
   .cd-slider > li h2 {
     font-size: 2.4em;
     font-weight: 300;
@@ -435,4 +463,17 @@ svg cover layer
   -webkit-transition: opacity 0.6s;
   -moz-transition: opacity 0.6s;
   transition: opacity 0.6s;
+}
+/*--------------------------------
+
+keyframes
+
+--------------------------------*/
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
 }
