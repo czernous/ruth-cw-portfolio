@@ -207,23 +207,30 @@ div#about {
 /*---------------------------
 Contact form style
 ----------------------------*/
-form {
-  max-height: 400px;
-  height: 100%;
-   }
+
 #contact_form, #contact_form textarea, #contact_form button{
 	font-family: "Comfortaa";
+}
+#contact_form {
+  max-height: 400px;
+  height: 100%;
 }
 #contact_form label{
   font-weight: 700;
 }
 /* Fields */
+#contact_form .row {
+  min-height: 5em;
+}
+#contact_form input {
+  min-height: 2em;
+}
 #contact_form input[type=date], #cotact_form input[type=email], #contact_form input[type=text], #contact_form select, #contact_form textarea {
     background-color: #33333366; /* Remove background fill */
     border-radius: 0; /* Remove corner curve */
-    border: 2px solid #fff; /* 2px white border */
+    border: 1px solid #fff9; /* 2px white border */
     color: #fff; /* White text */
-    max-height: 45px; /* Increase input height */
+    max-height: 75px; /* Increase input height */
     height: 100%;
     margin:1rem;
     max-width: 400px;
@@ -235,14 +242,18 @@ form {
 }
 /* Button */
 #contact_form button[type=submit] {
-   border: 2px solid #fff;
-   padding: 10px 60px;
+   border: 1px solid #fff9;
+   padding: 10px;
    color: white;
    background: #444;
    font-weight: 700;
    max-width: 400px;
    width:100%;
-
+}
+#contact_form button[type=submit]:hover {
+  background:white;
+  color: #444;
+  border: 1px solid #555;
 }
 /*-----------------
 modal content
@@ -270,6 +281,16 @@ modal content
   .cd-slider > li h1 {
     font-size: 4.4em;
     font-weight: 300;
+  }
+  .cd-slider > li h2 {
+    font-size: 2.5em;
+  }
+  #contact_form {
+  width: 90%;
+  padding-left: 3.5%;
+   }
+  #contact_form button {
+    margin-left: 3%;
   }
  }
 @media only screen and (min-width: 768px) {
